@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = test_input($_POST["nombre"]);
     $psw = test_input($_POST["psw"]);
     if (comprobarUsuarioBd($nombre, $psw)== true){
+        $_SESSION['nombre'] = $nombre;
         header("Location: index.php");
         exit();
     } else {

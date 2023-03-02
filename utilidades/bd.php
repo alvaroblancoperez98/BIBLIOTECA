@@ -11,7 +11,7 @@ function conexionBd(){
     if (!$con) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "Connected successfully";
+    
     //mysqli_close($con);
     
     return $con;
@@ -50,6 +50,20 @@ function comprobarUsuarioBd($nombre, $psw){
     }
     
     $con->close();
+}
+
+function insertarCarrito($libros, $total, $usuario, $fecha_pedido){
+  $con = conexionBd();
+  
+  $sql = "INSERT INTO `carrito`(`libros`, `total`, `usuario`, `fecha_pedido`) VALUES ('$libros','$total','$usuario','$fecha_pedido')";
+  
+if (mysqli_query($con, $sql)) {
+    echo "New record created successfully";
+    
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+}
+mysqli_close($con);
 }
 ?>
 

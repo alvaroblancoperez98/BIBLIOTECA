@@ -4,7 +4,7 @@ session_start();
 include '../utilidades/seguridad.php';
 include '../utilidades/bd.php';
 
-// define variables and set to empty values
+
 $nombre = $email = $psw = $pswRepeat = $direccion = "";
 $correcto = true;
 $dato = array();
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $direccion = test_input($_POST["direccion"]);  
 }
 
-//Creo sesión con los post
+
 
 if ($correcto) {
     $_SESSION['nombre'] = $nombre;
