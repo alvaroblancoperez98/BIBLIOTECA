@@ -59,3 +59,4 @@ if (isset($_POST['pagarpedido'])) {
 
 mysqli_close($con);
 }
+?>
